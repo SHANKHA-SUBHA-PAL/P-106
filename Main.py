@@ -13,23 +13,15 @@ def getDataSource(data_path):
 
     return {"x" : temperature, "y": icecream_sales}
 
-def plotFig():
-    
-    with open("P-106\ICE-CREAM VS COLD DRINK.csv") as csv_file:
-        df = csv.reader(csv_file)
-        fig = px.scatter(df,x = "Temperature", y = "Ice-cream Sales")
-        fig.show()
-
-
 def findCorrelation(datasource):
     correlation = np.corrcoef(datasource["x"], datasource["y"])
     print("Correlation between Marks in percentage and Days present :-  \n--->",correlation[0,1])
 
 def setup():
-    data_path  = "P-106\ICE-CREAM VS COLD DRINK.csv"
+    data_path  = "Projects\P-106\ICE-CREAM VS COLD DRINK.csv"
 
     datasource = getDataSource(data_path)
     findCorrelation(datasource)
-    plotFig()
+
 
 setup()
